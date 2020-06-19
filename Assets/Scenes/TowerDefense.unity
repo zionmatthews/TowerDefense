@@ -296,6 +296,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner West
       objectReference: {fileID: 0}
+    - target: {fileID: 953611611920978694, guid: 022638fcc05867e4a9668fab87555f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1694554781355841577, guid: 022638fcc05867e4a9668fab87555f97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,6 +562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner East
       objectReference: {fileID: 0}
+    - target: {fileID: 953611611920978694, guid: 022638fcc05867e4a9668fab87555f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1694554781355841577, guid: 022638fcc05867e4a9668fab87555f97,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -739,25 +749,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &1121942279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5596253565964311412, guid: 4b6629114bdecf84d9a4a20e318952a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 118378596}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1121942280
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121942279}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1001 &1783018085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,6 +760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Spawner Southeast
+      objectReference: {fileID: 0}
+    - target: {fileID: 953611611920978694, guid: 022638fcc05867e4a9668fab87555f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1694554781355841577, guid: 022638fcc05867e4a9668fab87555f97,
         type: 3}
@@ -942,6 +938,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Spawner South
+      objectReference: {fileID: 0}
+    - target: {fileID: 953611611920978694, guid: 022638fcc05867e4a9668fab87555f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1694554781355841577, guid: 022638fcc05867e4a9668fab87555f97,
         type: 3}

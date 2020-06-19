@@ -19,8 +19,11 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        enemyAttack();
+        if (other.tag == "Enemy")
+        {
+        enemyAttack(); 
         //other.gameObject.
+        }
     }
 
     void enemyAttack()
