@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyAttackBehaviourScript : MonoBehaviour
 {
     public float towerMaxHealth = 100;
-    public float towerCurrentHealth = 100;
+    public float towerCurrentHealth;
     public HealthBarBehaviourScript healthBar;
     // Start is called before the first frame update
     void Start()
