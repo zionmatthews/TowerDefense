@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class Player1Behavior : MonoBehaviour
@@ -10,7 +12,8 @@ public class Player1Behavior : MonoBehaviour
     //Requires CharacterController Componet 
     private CharacterController controller;
 
-    //Players speed
+    private NavMeshAgent NavMesh;
+
     public float speed = 5.0f;
 
     public float turnSmoothTime = 0.1f;
@@ -27,6 +30,15 @@ public class Player1Behavior : MonoBehaviour
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitDist = 0.0f;
 
+        ////Direction
+        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //movement.Normalize();
+
+
+
+        ////Move
+        //controller.SimpleMove(movement);
+
         //Direction
         Vector3 moveDirection = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.W)) //Up
@@ -37,15 +49,11 @@ public class Player1Behavior : MonoBehaviour
             moveDirection += new Vector3(0, 0, -1);
         if (Input.GetKey(KeyCode.D)) //Right
             moveDirection += new Vector3(1, 0, 0);
-
         moveDirection.Normalize();
 
-        //Set the magnitude
         moveDirection *= speed;
 
-        //Move
         controller.Move(moveDirection * Time.deltaTime);
-
 
         //Player rotation
         if (playerPlane.Raycast(ray, out hitDist))
