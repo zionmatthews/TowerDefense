@@ -58,7 +58,7 @@ public class Bow : MonoBehaviour
     {
        PlayerFire = false;
 
-       yield return new WaitForSeconds(1);
+       yield return new WaitForSeconds(0.5F);
 
         PlayerFire = true;
     }

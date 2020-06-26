@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 public class Player1Behavior : MonoBehaviour
@@ -10,8 +11,9 @@ public class Player1Behavior : MonoBehaviour
     //Requires CharacterController Componet 
     private CharacterController controller;
 
-    //Players speed
-    public float speed = 5.0f;
+    private NavMeshAgent NavMesh;
+
+    
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -28,23 +30,13 @@ public class Player1Behavior : MonoBehaviour
         float hitDist = 0.0f;
 
         //Direction
-        Vector3 moveDirection = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.W)) //Up
-            moveDirection += new Vector3(0, 0, 1);
-        if (Input.GetKey(KeyCode.A)) //Left
-            moveDirection += new Vector3(-1, 0, 0);
-        if (Input.GetKey(KeyCode.S)) //Down
-            moveDirection += new Vector3(0, 0, -1);
-        if (Input.GetKey(KeyCode.D)) //Right
-            moveDirection += new Vector3(1, 0, 0);
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        movement.Normalize();
 
-        moveDirection.Normalize();
-
-        //Set the magnitude
-        moveDirection *= speed;
+        
 
         //Move
-        controller.Move(moveDirection * Time.deltaTime);
+        controller.SimpleMove(movement);
 
 
         //Player rotation

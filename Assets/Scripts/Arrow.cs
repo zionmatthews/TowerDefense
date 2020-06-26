@@ -9,10 +9,14 @@ public class Arrow : MonoBehaviour
     Rigidbody myBody;
 
     //The arrows life timer
-    private float lifeTimer = 2f;
+    private float lifeTimer = 4f;
     private float timer;
 
     private bool hitSomething = false;
+
+    public float damage;
+
+    private GameObject Enemy;
 
    
     void Start()
@@ -40,15 +44,24 @@ public class Arrow : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision)
-    { 
-        if(collision.collider.tag != "Arrow")
+    {
+
+        if (collision.collider.tag != "Arrow")
         {
             hitSomething = true;
             //Sticks on collision
             Stick();
         }
-        
+
+        if (collision.transform.tag == "Enemy")
+        {
+            Enemy = collision.gameObject;
+            Enemy.GetComponent<EnemyStats>().health -= damage;
+        }
+
     }
+
+    
 
     void Stick()
     {
