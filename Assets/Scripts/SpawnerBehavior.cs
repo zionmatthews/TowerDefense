@@ -25,6 +25,8 @@ public class SpawnerBehavior : MonoBehaviour
     /// 
     public float timeRemaining = 0;
 
+    public ScoreKeepingBehaviourScript scoreKeeping;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,11 @@ public class SpawnerBehavior : MonoBehaviour
         if (pathfindBehavior != null)
         {
             pathfindBehavior.target = behaviorTarget;
+        }
+        EnemyStats enemyStats = spawnedEnemy.GetComponent<EnemyStats>();
+        if (enemyStats != null)
+        {
+            enemyStats.scoreKeeping = scoreKeeping;
         }
     }
 }

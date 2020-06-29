@@ -12,7 +12,8 @@ public class Player1Behavior : MonoBehaviour
     //Requires CharacterController Componet 
     private CharacterController controller;
 
-    private NavMeshAgent NavMesh;
+    [SerializeField]
+    private NavMeshAgent agent;
 
     public float speed = 5.0f;
 
@@ -31,29 +32,30 @@ public class Player1Behavior : MonoBehaviour
         float hitDist = 0.0f;
 
         ////Direction
-        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //movement.Normalize();
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        movement.Normalize();
 
 
 
         ////Move
-        //controller.SimpleMove(movement);
+        controller.SimpleMove(movement);
+        agent.destination = transform.position + movement;
 
         //Direction
-        Vector3 moveDirection = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.W)) //Up
-            moveDirection += new Vector3(0, 0, 1);
-        if (Input.GetKey(KeyCode.A)) //Left
-            moveDirection += new Vector3(-1, 0, 0);
-        if (Input.GetKey(KeyCode.S)) //Down
-            moveDirection += new Vector3(0, 0, -1);
-        if (Input.GetKey(KeyCode.D)) //Right
-            moveDirection += new Vector3(1, 0, 0);
-        moveDirection.Normalize();
+        //Vector3 moveDirection = new Vector3(0, 0, 0);
+        //if (Input.GetKey(KeyCode.W)) //Up
+        //    moveDirection += new Vector3(0, 0, 1);
+        //if (Input.GetKey(KeyCode.A)) //Left
+        //    moveDirection += new Vector3(-1, 0, 0);
+        //if (Input.GetKey(KeyCode.S)) //Down
+        //    moveDirection += new Vector3(0, 0, -1);
+        //if (Input.GetKey(KeyCode.D)) //Right
+        //    moveDirection += new Vector3(1, 0, 0);
+        //moveDirection.Normalize();
 
-        moveDirection *= speed;
+        //moveDirection *= speed;
 
-        controller.Move(moveDirection * Time.deltaTime);
+        //controller.Move(moveDirection * Time.deltaTime);
 
         //Player rotation
         if (playerPlane.Raycast(ray, out hitDist))
