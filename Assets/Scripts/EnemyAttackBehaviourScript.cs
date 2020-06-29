@@ -34,6 +34,6 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
     {
         towerCurrentHealth-= Time.fixedDeltaTime;
 
-        healthBar.SetMaxHealth(Convert.ToInt32(towerCurrentHealth));
+        healthBar.SetHealth(Convert.ToInt32(towerCurrentHealth));
     }
 }
