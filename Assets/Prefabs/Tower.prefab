@@ -201,4 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3f250f9cc73f148b2554ae4681674f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerHealth: 100
+  towerMaxHealth: 250
+  towerCurrentHealth: 0
+  healthBar: {fileID: 0}
