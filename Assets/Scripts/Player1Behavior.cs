@@ -12,7 +12,8 @@ public class Player1Behavior : MonoBehaviour
     //Requires CharacterController Componet 
     private CharacterController controller;
 
-    private NavMeshAgent NavMesh;
+    [SerializeField]
+    private NavMeshAgent agent;
 
     public float speed = 5.0f;
 
@@ -30,14 +31,16 @@ public class Player1Behavior : MonoBehaviour
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitDist = 0.0f;
 
-        //Direction
+        ////Direction
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         movement.Normalize();
+
 
         controller.SimpleMove(movement);
 
         ////Move
-        //controller.SimpleMove(movement);
+        controller.SimpleMove(movement);
+        agent.destination = transform.position + movement;
 
         //Direction
         //Vector3 moveDirection = new Vector3(0, 0, 0);
