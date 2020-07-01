@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
@@ -24,9 +25,14 @@ public class Bow : MonoBehaviour
     //Player Fire rate
     bool PlayerFire = true;
 
+    public LineRenderer lineVisual;
+
+    public int lineSegment = 10;
+    
+
     void Start()
     {
-       
+        lineVisual.positionCount = lineSegment;
     }
 
     // Update is called once per frame
@@ -62,5 +68,26 @@ public class Bow : MonoBehaviour
 
         PlayerFire = true;
     }
-  
+
+    Vector3 CalculatePosInTime(Vector3 vo, float time)
+    {
+        Vector3 Vxz = vo;
+        Vxz.y = 0f;
+
+        Vector3 result = arrowSpawnPoint.position + Vxz * time;
+        float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (Vxz.y * time) + arrowSpawnPoint.position.y;
+
+        result.y = sY;
+
+        return result;
+    }
+    
+    void Visualize(Vector3 vo)
+    {
+        for (int i = 0; i < lineSegment; i++)
+        {
+            Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
+            lineVisual.SetPosition(i, pos);
+        }
+    }
 }
