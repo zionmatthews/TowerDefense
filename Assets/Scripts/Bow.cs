@@ -33,6 +33,7 @@ public class Bow : MonoBehaviour
     void Start()
     {
         lineVisual.positionCount = lineSegment;
+       
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class Bow : MonoBehaviour
             //fire button is hold, charge the bow.
             _charge += Time.deltaTime * chargeRate;
             Debug.Log(_charge.ToString());
-           
+            Visualize(vo);
         }
        
         if (Input.GetKeyUp(fireButton))
