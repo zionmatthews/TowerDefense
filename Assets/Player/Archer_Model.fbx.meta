@@ -1,48 +1,14 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: e5bfefb52169ebf4e98101761e35b36b
-=======
-guid: 811d70d7d330c5543b34b3eb0c0fe1ad
->>>>>>> master
+guid: 346c98ca6e6c1e64bbd6e7d302020a5d
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Armor1
-<<<<<<< HEAD
-    second: {fileID: 2100000, guid: 44ccb84c89725fd41aaffd55ff85967e, type: 2}
-=======
-    second: {fileID: 2100000, guid: 9c987ba0b0ee0c744a41e37edee091de, type: 2}
->>>>>>> master
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: _Body
-<<<<<<< HEAD
-    second: {fileID: 2100000, guid: c2b4c754b1328e84ca36cfae220eec36, type: 2}
-=======
-    second: {fileID: 2100000, guid: 7bfd4591f0c91974dbd4ea14c48fad7e, type: 2}
->>>>>>> master
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert7
-<<<<<<< HEAD
-    second: {fileID: 2100000, guid: f9dabcd7f49812648919aea4b122765f, type: 2}
-=======
-    second: {fileID: 2100000, guid: 74c0924d14224db488eac847c0868628, type: 2}
->>>>>>> master
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
-    materialImportMode: 1
-    materialName: 3
+    materialImportMode: 0
+    materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -65,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -73,12 +39,12 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -87,21 +53,24 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 2988aab1c5df28843857490d20434d3b
+  - 2d623cc657ceef749a79984a286108dd
+  - 7d8413302104a764a950dac9a22ebf21
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -121,9 +90,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -25,14 +26,16 @@ public class Bow : MonoBehaviour
     //Player Fire rate
     bool PlayerFire = true;
 
-    public LineRenderer lineVisual;
+   
 
-    public int lineSegment = 10;
+    public float bowRotateSpeed;
+
     
+
 
     void Start()
     {
-        lineVisual.positionCount = lineSegment;
+        
        
     }
 
@@ -44,7 +47,8 @@ public class Bow : MonoBehaviour
             //fire button is hold, charge the bow.
             _charge += Time.deltaTime * chargeRate;
             Debug.Log(_charge.ToString());
-            Visualize(vo);
+            transform.Rotate(-bowRotateSpeed, 0, 0);
+           
         }
        
         if (Input.GetKeyUp(fireButton))
@@ -56,6 +60,7 @@ public class Bow : MonoBehaviour
                 arrow.AddForce(arrowSpawnPoint.forward * _charge, ForceMode.Impulse);
                 //Reset charge
                 _charge = 0;
+                
                 StartCoroutine(Wait());
             }
            
@@ -70,25 +75,5 @@ public class Bow : MonoBehaviour
         PlayerFire = true;
     }
 
-    Vector3 CalculatePosInTime(Vector3 vo, float time)
-    {
-        Vector3 Vxz = vo;
-        Vxz.y = 0f;
-
-        Vector3 result = arrowSpawnPoint.position + Vxz * time;
-        float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (Vxz.y * time) + arrowSpawnPoint.position.y;
-
-        result.y = sY;
-
-        return result;
-    }
-    
-    void Visualize(Vector3 vo)
-    {
-        for (int i = 0; i < lineSegment; i++)
-        {
-            Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
-            lineVisual.SetPosition(i, pos);
-        }
-    }
+   
 }
