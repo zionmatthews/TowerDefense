@@ -19,4 +19,9 @@ public class PlayerAnimBehaviourScript : MonoBehaviour
     {
         animator.SetFloat("Speed", speed);
     }
+
+    private void OnMouseDown()
+    {
+        animator.SetTrigger("Attack");
+    }
 }
