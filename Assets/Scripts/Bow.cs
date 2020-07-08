@@ -6,74 +6,127 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    float _charge;
+    public Rigidbody arrowPrefabs;
 
-    //Max charge
-    public float chargeMax;
 
-    //The rate in which it takes to get max
-    public float chargeRate;
+    public GameObject cursor;
 
-    //Fire Key
-    public KeyCode fireButton;
+
+    public LayerMask layer;
+
 
     public Transform arrowSpawnPoint;
 
-    
-    //Arrow Rigidbody
-    public Rigidbody arrowObj;
 
-    //Player Fire rate
+    public LineRenderer lineVisual;
+
+
+    public int lineSegment = 10;
+
+
+    private Camera cam;
+
+
     bool PlayerFire = true;
 
-   
-
-    public float bowRotateSpeed;
-
-    
-
-
+    // Start is called before the first frame update
     void Start()
     {
-        
-       
+        cam = Camera.main;
+        lineVisual.positionCount = lineSegment;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(fireButton) && _charge < chargeRate)
+        LaunchProjectile();
+    }
+
+    void LaunchProjectile()
+    {
+        Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(camRay, out hit, 100f, layer))
         {
-            //fire button is hold, charge the bow.
-            _charge += Time.deltaTime * chargeRate;
-            Debug.Log(_charge.ToString());
-            transform.Rotate(-bowRotateSpeed, 0, 0);
-           
-        }
-       
-        if (Input.GetKeyUp(fireButton))
-        {
-            if (PlayerFire)
+            cursor.SetActive(true);
+            cursor.transform.position = hit.point + Vector3.up * 0.1f;
+
+            Vector3 vo = CalculateVelocity(hit.point, arrowSpawnPoint.position, 1f);
+
+            Visualize(vo);
+
+            //transform.rotation = Quaternion.LookRotation(vo);
+
+            if (Input.GetMouseButtonDown(0))
             {
-                //Arrow fires in the straight position from the ArrowSpawnPoint.
-                Rigidbody arrow = Instantiate(arrowObj, arrowSpawnPoint.position, arrowSpawnPoint.transform.rotation) as Rigidbody;
-                arrow.AddForce(arrowSpawnPoint.forward * _charge, ForceMode.Impulse);
-                //Reset charge
-                _charge = 0;
-                
-                StartCoroutine(Wait());
+                if (PlayerFire)
+                {
+                    Rigidbody obj = Instantiate(arrowPrefabs, arrowSpawnPoint.position, Quaternion.identity);
+                    obj.velocity = vo;
+
+                    StartCoroutine(Wait());
+                }
+
             }
-           
         }
-    }   
+        else
+        {
+            cursor.SetActive(false);
+        }
+    }
+
+    Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
+    {
+        //define the distance x and y first
+        Vector3 distance = target - origin;
+        Vector3 distanceXZ = distance;
+        distanceXZ.y = 0f;
+
+        //create a float the represent our distance
+        float Sy = distance.y;
+        float Sxz = distanceXZ.magnitude;
+
+        float Vxz = Sxz / time;
+        float Vy = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
+
+        Vector3 result = distanceXZ.normalized;
+        result *= Vxz;
+        result *= Vy;
+
+        return result;
+    }
+
+    void Visualize(Vector3 vo)
+    {
+        for (int i = 0; i < lineSegment; i++)
+        {
+            Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
+            lineVisual.SetPosition(i, pos);
+        }
+    }
+
+    Vector3 CalculatePosInTime(Vector3 vo, float time)
+    {
+        Vector3 Vxz = vo;
+        Vxz.y = 0f;
+
+        Vector3 result = arrowSpawnPoint.position + vo * time;
+        float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (vo.y * time) + arrowSpawnPoint.position.y;
+
+        result.y = sY;
+
+        return result;
+    }
+
     IEnumerator Wait()
     {
-       PlayerFire = false;
+        PlayerFire = false;
 
-       yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(0.5F);
 
         PlayerFire = true;
     }
 
-   
+
 }
