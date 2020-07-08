@@ -36,26 +36,13 @@ public class Player1Behavior : MonoBehaviour
         movement.Normalize();
 
 
+        controller.SimpleMove(movement);
 
         ////Move
         controller.SimpleMove(movement);
         agent.destination = transform.position + movement;
 
-        //Direction
-        //Vector3 moveDirection = new Vector3(0, 0, 0);
-        //if (Input.GetKey(KeyCode.W)) //Up
-        //    moveDirection += new Vector3(0, 0, 1);
-        //if (Input.GetKey(KeyCode.A)) //Left
-        //    moveDirection += new Vector3(-1, 0, 0);
-        //if (Input.GetKey(KeyCode.S)) //Down
-        //    moveDirection += new Vector3(0, 0, -1);
-        //if (Input.GetKey(KeyCode.D)) //Right
-        //    moveDirection += new Vector3(1, 0, 0);
-        //moveDirection.Normalize();
 
-        //moveDirection *= speed;
-
-        //controller.Move(moveDirection * Time.deltaTime);
 
         //Player rotation
         if (playerPlane.Raycast(ray, out hitDist))
@@ -65,6 +52,6 @@ public class Player1Behavior : MonoBehaviour
             targetRotation.x = 0;
             targetRotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
-        }       
+        }
     }
 }
