@@ -28,7 +28,7 @@ public class Bow : MonoBehaviour
     private Camera cam;
 
 
-    bool PlayerFire = true;
+    public bool PlayerFire = true;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +68,7 @@ public class Bow : MonoBehaviour
                     Rigidbody obj = Instantiate(arrowPrefabs, arrowSpawnPoint.position, Quaternion.identity);
                     obj.velocity = vo;
 
+                    PlayerFire = false;
                     StartCoroutine(Wait());
                 }
 

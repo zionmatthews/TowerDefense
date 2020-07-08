@@ -179,14 +179,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9715313f52d48754b84c3b2b6e0cf0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefabs: {fileID: 0}
-  cursor: {fileID: 0}
+  arrowPrefabs: {fileID: -5954435725009359916, guid: 7e12e38ff76a8d84a8b856f8a78036a0,
+    type: 3}
+  cursor: {fileID: 6044524540686336735, guid: 8971fcb7cdabc6341b58c468322ab08c, type: 3}
   layer:
     serializedVersion: 2
-    m_Bits: 0
-  arrowSpawnPoint: {fileID: 2890770430185849184}
-  lineVisual: {fileID: 0}
+    m_Bits: 1
+  arrowSpawnPoint: {fileID: 2890770429918249689}
+  lineVisual: {fileID: 6762937432428249497}
   lineSegment: 10
+  PlayerFire: 1
 --- !u!120 &6762937432428249497
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -227,8 +229,16 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -0.57849497, y: 1.0848335, z: 1.3317184}
+  - {x: -0.56955767, y: 1.4178002, z: 1.6112359}
+  - {x: -0.5606204, y: 1.6526668, z: 1.8907533}
+  - {x: -0.5516831, y: 1.7894335, z: 2.1702707}
+  - {x: -0.5427459, y: 1.8281001, z: 2.449788}
+  - {x: -0.5338086, y: 1.7686667, z: 2.7293055}
+  - {x: -0.5248713, y: 1.6111333, z: 3.008823}
+  - {x: -0.51593405, y: 1.3555001, z: 3.2883403}
+  - {x: -0.50699675, y: 1.0017666, z: 3.5678577}
+  - {x: -0.49805948, y: 0.5499334, z: 3.8473752}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
