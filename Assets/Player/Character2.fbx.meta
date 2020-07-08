@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 811d70d7d330c5543b34b3eb0c0fe1ad
+guid: e5bfefb52169ebf4e98101761e35b36b
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -11,17 +11,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Armor1
-    second: {fileID: 2100000, guid: 9c987ba0b0ee0c744a41e37edee091de, type: 2}
+    second: {fileID: 2100000, guid: 44ccb84c89725fd41aaffd55ff85967e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: _Body
-    second: {fileID: 2100000, guid: 7bfd4591f0c91974dbd4ea14c48fad7e, type: 2}
+    second: {fileID: 2100000, guid: c2b4c754b1328e84ca36cfae220eec36, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert7
-    second: {fileID: 2100000, guid: 74c0924d14224db488eac847c0868628, type: 2}
+    second: {fileID: 2100000, guid: f9dabcd7f49812648919aea4b122765f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 3
