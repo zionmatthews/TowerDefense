@@ -6,24 +6,25 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
+    //Arrow Rigidbody
     public Rigidbody arrowPrefabs;
 
-
+    //Circle GameObject
     public GameObject cursor;
 
-
+    //Layer Mask
     public LayerMask layer;
 
 
     public Transform arrowSpawnPoint;
 
-
+    //The Line Render
     public LineRenderer lineVisual;
 
 
     public int lineSegment = 10;
 
-
+    //Store the camera
     private Camera cam;
 
 
@@ -32,6 +33,7 @@ public class Bow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //make sure camera has the MainCamera tag
         cam = Camera.main;
         lineVisual.positionCount = lineSegment;
     }
@@ -47,6 +49,7 @@ public class Bow : MonoBehaviour
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        //If the raycast hits something
         if (Physics.Raycast(camRay, out hit, 100f, layer))
         {
             cursor.SetActive(true);
@@ -56,7 +59,7 @@ public class Bow : MonoBehaviour
 
             Visualize(vo);
 
-            //transform.rotation = Quaternion.LookRotation(vo);
+            transform.rotation = Quaternion.LookRotation(vo);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -76,6 +79,15 @@ public class Bow : MonoBehaviour
         }
     }
 
+    void Visualize(Vector3 vo)
+    {
+        for (int i = 0; i < lineSegment; i++)
+        {
+            Vector3 pos = CalculatePosInTime(vo, i / (float)(lineSegment));
+            lineVisual.SetPosition(i, pos);
+        }
+    }
+
     Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
     {
         //define the distance x and y first
@@ -87,30 +99,25 @@ public class Bow : MonoBehaviour
         float Sy = distance.y;
         float Sxz = distanceXZ.magnitude;
 
+        //Calculate the velocity 
         float Vxz = Sxz / time;
         float Vy = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
 
         Vector3 result = distanceXZ.normalized;
         result *= Vxz;
-        result *= Vy;
+        result.y = Vy;
 
         return result;
     }
 
-    void Visualize(Vector3 vo)
-    {
-        for (int i = 0; i < lineSegment; i++)
-        {
-            Vector3 pos = CalculatePosInTime(vo, i / (float)lineSegment);
-            lineVisual.SetPosition(i, pos);
-        }
-    }
+    
 
     Vector3 CalculatePosInTime(Vector3 vo, float time)
     {
         Vector3 Vxz = vo;
         Vxz.y = 0f;
 
+        //Set the x, z, and y position 
         Vector3 result = arrowSpawnPoint.position + vo * time;
         float sY = (-0.5f * Mathf.Abs(Physics.gravity.y) * (time * time)) + (vo.y * time) + arrowSpawnPoint.position.y;
 

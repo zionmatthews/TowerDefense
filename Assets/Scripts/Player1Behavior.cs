@@ -42,7 +42,7 @@ public class Player1Behavior : MonoBehaviour
         controller.SimpleMove(movement);
         agent.destination = transform.position + movement;
 
-       
+
 
         //Player rotation
         if (playerPlane.Raycast(ray, out hitDist))

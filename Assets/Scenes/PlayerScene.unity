@@ -459,6 +459,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1433376313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2890770429918249689, guid: 94b17a13a25a8364c8c99c6cef54c594,
+    type: 3}
+  m_PrefabInstance: {fileID: 2890770428489351416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +721,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
@@ -1021,6 +1027,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5954435725009359916, guid: 7e12e38ff76a8d84a8b856f8a78036a0,
         type: 3}
+    - target: {fileID: 2890770430185849188, guid: 94b17a13a25a8364c8c99c6cef54c594,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890770430185849188, guid: 94b17a13a25a8364c8c99c6cef54c594,
+        type: 3}
+      propertyPath: arrowSpawnPoint
+      value: 
+      objectReference: {fileID: 1433376313}
     - target: {fileID: 2890770430190785000, guid: 94b17a13a25a8364c8c99c6cef54c594,
         type: 3}
       propertyPath: m_Enabled
