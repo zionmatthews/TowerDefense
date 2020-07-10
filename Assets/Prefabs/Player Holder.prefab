@@ -460,7 +460,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4b1c204c3d4b5734c99e167b75ba552c, type: 2}
+      objectReference: {fileID: 2100000, guid: bbb11b01f74b5a040831b9b00b65f373, type: 2}
     - target: {fileID: -4216859302048453862, guid: 346c98ca6e6c1e64bbd6e7d302020a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,7 +540,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b1d3fd10fbbc0284a91047e223d53cc5, type: 2}
+      objectReference: {fileID: 2100000, guid: 88441a8e7ee44ef49a11fc3edcdbab4d, type: 2}
     - target: {fileID: -927199367670048503, guid: 346c98ca6e6c1e64bbd6e7d302020a5d,
         type: 3}
       propertyPath: m_Name
