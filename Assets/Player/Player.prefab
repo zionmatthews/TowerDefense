@@ -911,8 +911,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   arrowSpawnPoint: {fileID: 2029112026218667018}
-  lineVisual: {fileID: 6762937432428249497, guid: 94b17a13a25a8364c8c99c6cef54c594,
-    type: 3}
+  lineVisual: {fileID: 3762421865007330224}
   lineSegment: 10
   PlayerFire: 1
 --- !u!120 &3762421865007330224

@@ -9,7 +9,7 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
     public float towerCurrentHealth;
     public HealthBarBehaviourScript healthBar;
 
-    public bool Attack = false;
+    
     // Start is called before the first frame update
     void Start()
     {
