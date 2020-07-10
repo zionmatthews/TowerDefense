@@ -8,6 +8,8 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
     public float towerMaxHealth = 100;
     public float towerCurrentHealth;
     public HealthBarBehaviourScript healthBar;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +27,18 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-        enemyAttack(); 
-        //other.gameObject.
+            
+            enemyAttack();
+
+            other.gameObject.GetComponentInChildren<SpiderAnimBehavior>().attacking = true;           
         }
     }
 
     void enemyAttack()
     {
+       
         towerCurrentHealth-= Time.fixedDeltaTime;
-
+        
         healthBar.SetHealth(Convert.ToInt32(towerCurrentHealth));
     }
 }
