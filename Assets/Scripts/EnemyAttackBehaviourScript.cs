@@ -30,7 +30,7 @@ public class EnemyAttackBehaviourScript : MonoBehaviour
             
             enemyAttack();
 
-            other.gameObject.GetComponentInChildren<SpiderAnimBehavior>().attacking = true;
+            other.gameObject.GetComponentInChildren<SpiderAnimBehavior>().attacking = true;           
         }
     }
 
